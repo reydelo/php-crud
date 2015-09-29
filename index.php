@@ -1,3 +1,20 @@
+<?php
+include_once 'database.php';
+if(isset($_POST['btn-save']))
+{
+
+ //variables for input data
+ $brand = $_POST['brand'];
+ $grade = $_POST['grade'];
+
+ // sql query for inserting data into database
+ $sql_query = "INSERT INTO pencils(brand,grade) VALUES('$brand', '$grade')";
+ mysql_query($sql_query);
+
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" ng-app=''>
   <head>
@@ -15,19 +32,18 @@
 
       <div class="col-md-6">
         <h1 class="text-center">Nominate a Pencil</h1>
-        <form>
+        <form method="post">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Pencil Brand" required>
+            <input type="text" class="form-control" placeholder="Pencil Brand" name="brand" required>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Pencil Grade" required>
+            <input type="text" class="form-control" placeholder="Pencil Grade" name="grade" required>
           </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Mechanical?" required>
-          </div>
-          <button class="btn btn-warning btn-block">Submit</button>
+          <button type="submit" class="btn btn-warning btn-block" name="btn-save">Submit</button>
         </form>
       </div>
+
+
 
       <div class="col-md-6">
         <h2>Best Pencils</h2>
@@ -37,21 +53,29 @@
               <th colspan="1"></th>
               <th>Brand</th>
               <th>Grade</th>
-              <th>Mechanical</th>
               <th colspan="1"></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th><span class="pull-right glyphicon glyphicon-star text-warning">5</span></th>
-              <td>Ticonderoga</td>
-              <td>HB</td>
-              <td>False</td>
-              <td class="text-right">
-                <button class="btn btn-primary"><span class="glyphicon glyphicon-cog"></span></button>
-                <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
-              </td>
-            </tr>
+            <?php
+      $sql_query="SELECT * FROM pencils";
+      $result_set=mysql_query($sql_query);
+      while($row = mysql_fetch_array($result_set))
+      {
+          ?>
+          <tr>
+            <th><span class="pull-right glyphicon glyphicon-star text-warning"><?php echo $row[2]; ?></span></th>
+            <td><?php echo $row[0]; ?></td>
+            <td><?php echo $row[1]; ?></td>
+            <td class="text-right">
+              <button class="btn btn-primary"><span class="glyphicon glyphicon-cog"></span></button>
+              <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+            </td>
+          </tr>
+          <?php
+      }
+      ?>
+
           </tbody>
         </table>
       </div>
