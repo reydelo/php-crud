@@ -1,17 +1,17 @@
 <?php
 include_once 'database.php';
-if(isset($_POST['btn-save']))
-{
-
- //variables for input data
- $brand = $_POST['brand'];
- $grade = $_POST['grade'];
-
- // sql query for inserting data into database
- $sql_query = "INSERT INTO pencils(brand,grade) VALUES('$brand', '$grade')";
- mysql_query($sql_query);
-
-}
+// if(isset($_POST['btn-save']))
+// {
+//
+//  //variables for input data
+//  $brand = $_POST['brand'];
+//  $grade = $_POST['grade'];
+//
+//  // sql query for inserting data into database
+//  $sql_query = "INSERT INTO pencils(brand,grade) VALUES('$brand', '$grade')";
+//  mysql_query($sql_query);
+//
+// }
 
 ?>
 
@@ -30,18 +30,7 @@ if(isset($_POST['btn-save']))
   <div class="container">
     <div class="row">
 
-      <div class="col-md-6">
-        <h1 class="text-center">Nominate a Pencil</h1>
-        <form method="post">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Pencil Brand" name="brand" required>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Pencil Grade" name="grade" required>
-          </div>
-          <button type="submit" class="btn btn-warning btn-block" name="btn-save">Submit</button>
-        </form>
-      </div>
+      <a href="create.php"><button class="btn btn-warning">Nominate a Pencil!</button></a>
 
 
 
