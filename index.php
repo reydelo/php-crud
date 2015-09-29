@@ -1,18 +1,5 @@
 <?php
 include_once 'database.php';
-// if(isset($_POST['btn-save']))
-// {
-//
-//  //variables for input data
-//  $brand = $_POST['brand'];
-//  $grade = $_POST['grade'];
-//
-//  // sql query for inserting data into database
-//  $sql_query = "INSERT INTO pencils(brand,grade) VALUES('$brand', '$grade')";
-//  mysql_query($sql_query);
-//
-// }
-
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +44,7 @@ include_once 'database.php';
             <td><?php echo $row[0]; ?></td>
             <td><?php echo $row[1]; ?></td>
             <td class="text-right">
-              <button class="btn btn-primary"><span class="glyphicon glyphicon-cog"></span></button>
+              <a href="javascript:editPencil('<?php echo $row[3]; ?>')"><button class="btn btn-primary"><span class="glyphicon glyphicon-cog"></span></button></a>
               <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
             </td>
           </tr>
