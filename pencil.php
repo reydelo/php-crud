@@ -15,6 +15,6 @@ $pencilModel = new PencilModel($db);
 $pencilList = $pencilModel->getAllPencils();
 
 // show the view
-include 'views/pencil-list.php';
-
+include 'views/pencils/index.php';
+include 'views/pencils/edit.php';
 ?>

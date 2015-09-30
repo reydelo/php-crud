@@ -62,4 +62,6 @@ Show your ability to hack on some PHP!
 
 #### Resources Used:
 
-http://www.codingcage.com/2014/12/simple-php-crud-operations-with-mysql.html
+[php-crud](http://www.codingcage.com/2014/12/simple-php-crud-operations-with-mysql.html) - Out of Date, suggested bad practices
+[PHP: The Right Way](http://phptherightway.com) - The BEST! Includes link to more resources, definitely the explanations I was in search of.
+[PHPBridge](http://phpbridge.org) - Seems great, although the next page I need is currently offline....
