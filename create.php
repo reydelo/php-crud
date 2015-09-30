@@ -9,10 +9,17 @@ if(isset($_POST['btn-save']))
 
   // sql query for inserting data into database
   $sql_query = "INSERT INTO pencils(brand,grade) VALUES('$brand', '$grade')";
-  mysql_query($sql_query);
-
+  // sql query execution function
+  if(mysql_query($sql_query)) {
+    header("Location: http://localhost:8888/index.php");
+    } else {
+     ?>
+     <script type="text/javascript">
+     alert('error occured while updating data');
+     </script>
+     <?php
+    }
 }
-
 ?>
 <!-- why did this make it work?! -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

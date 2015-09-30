@@ -16,12 +16,7 @@ if(isset($_POST['btn-save'])) {
 
  // sql query execution function
  if(mysql_query($sql_query)) {
-    ?>
-    <script type="text/javascript">
-    alert('Data Are Updated Successfully');
-    window.location.href='index.php';
-    </script>
-    <?php
+   header("Location: http://localhost:8888/index.php");
    } else {
     ?>
     <script type="text/javascript">
@@ -48,16 +43,14 @@ if(isset($_POST['btn-save'])) {
         <h1 class="text-center">Update Pencil</h1>
         <form method="post">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Pencil Brand" name="brand" required>
+            <input type="text" class="form-control" placeholder="Pencil Brand" name="brand" value=<?php echo $fetched_row["brand"]; ?> required>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Pencil Grade" name="grade" required>
+            <input type="text" class="form-control" placeholder="Pencil Grade" name="grade" value=<?php echo $fetched_row["grade"]; ?> required>
           </div>
           <button type="submit" class="btn btn-warning btn-block" name="btn-save">Submit</button>
         </form>
       </div>
-      <br>
-      <a href="index.php"><button class="btn btn-warning">back to main page</button></a>
 
     </div>
   </div>
