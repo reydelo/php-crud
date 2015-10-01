@@ -30,7 +30,7 @@ if(isset($_POST['btn-save'])) {
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 col-md-offset-3">
 
         <h1 class="text-center">Update Pencil<a href="index.php" class="pull-right"><button class="btn btn-primary">Cancel</button></a></h1>
 
