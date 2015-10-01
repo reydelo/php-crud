@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app=''>
+<html lang="en" ng-app='myApp'>
 <head>
   <meta charset="utf-8">
   <title>PHPencil CRUD</title>
@@ -8,14 +8,12 @@
 </head>
 <body>
 
-  <div class="container">
+  <div class="container" ng-controller="PencilController">
     <div class="row">
 
-      <a href="create.php"><button class="btn btn-warning">Nominate a Pencil!</button></a>
-
-      <div class="col-md-6">
-        <h2>Best Pencils</h2>
-        <table class="table">
+      <div ng-show="table" class="col-md-6 col-md-offset-3">
+        <h2>Best Pencils<button class="btn btn-warning pull-right" ng-click="showForm()">Nominate a Pencil!</button></h2>
+        <table class="table" >
           <thead>
             <tr>
               <th colspan="1"></th>
@@ -25,19 +23,30 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($pencilList as $row): ?>
-                <tr>
-                  <th><?php echo $row['vote_count']; ?> <a href="javascript:upVotePencil('<?php echo $row["id"]; ?>')"> <span class="glyphicon glyphicon-thumbs-up text-warning"></span></a></th>
-                  <td><?php echo $row["brand"]; ?></td>
-                  <td><?php echo $row["grade"]; ?></td>
+                <tr ng-repeat="pencil in pencils">
+                  <th>{{ pencil.vote_count }} <span class="glyphicon glyphicon-thumbs-up text-warning"></span></th>
+                  <td>{{ pencil.brand }}</td>
+                  <td>{{ pencil.grade }}</td>
                   <td class="text-right">
-                    <a href="javascript:editPencil('<?php echo $row["id"]; ?>')"><button class="btn btn-primary"><span class="glyphicon glyphicon-cog"></span></button></a>
-                    <a href="javascript:deletePencil('<?php echo $row["id"]; ?>')"><button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button></a>
+                    <button class="btn btn-primary"><span class="glyphicon glyphicon-cog"></span></button>
+                    <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
                   </td>
                 </tr>
-            <?php endforeach ?>
           </tbody>
         </table>
+      </div>
+
+      <div class="col-md-6 col-md-offset-3" ng-show="form">
+        <h2>Nominate a Pencil<button class="btn btn-primary pull-right" ng-click="hideForm()">Cancel</button></h2>
+        <form method="post">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Pencil Brand" ng-model="pencil.brand" required>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Pencil Grade" ng-model="pencil.grade" required>
+          </div>
+          <button ng-click=postPencil() class="btn btn-warning pull-right">Submit</button>
+        </form>
       </div>
 
     </div>
