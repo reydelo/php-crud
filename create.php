@@ -35,20 +35,22 @@ if(isset($_POST['btn-save']))
   <div class="container">
     <div class="row">
 
-      <div class="col-md-6">
-        <h1 class="text-center">Nominate a Pencil</h1>
+      <div class="col-md-6 col-md-offset-3">
+        <h1>Nominate a Pencil<a href="index.php" class="pull-right"><button class="btn btn-primary">Cancel</button></a></h1>
         <form method="post">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Pencil Brand" name="brand" required>
+            <input type="text" class="form-control" placeholder="Pencil Brand" name="brand">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Pencil Grade" name="grade" required>
+            <input type="text" class="form-control" placeholder="Pencil Grade" name="grade">
           </div>
-          <button type="submit" class="btn btn-warning btn-block" name="btn-save">Submit</button>
+          <div class="pull-right">
+          <button type="submit" class="btn btn-warning" name="btn-save">Submit</button>
+          </div>
         </form>
       </div>
       <br>
-      <a href="index.php"><button class="btn btn-warning">back to main page</button></a>
+
 
     </div>
   </div>
