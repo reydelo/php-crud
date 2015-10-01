@@ -59,7 +59,3 @@ If you don't have experience setting up a LAMP environment on your box, there ar
 
 
 Show your ability to hack on some PHP!
-
-#### Resources Used:
-
-http://www.codingcage.com/2014/12/simple-php-crud-operations-with-mysql.html
