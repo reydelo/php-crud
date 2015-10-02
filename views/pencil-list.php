@@ -10,9 +10,9 @@
   <div class="container" ng-controller="PencilController">
     <div class="row">
 
-      <div ng-show="table" class="col-md-6 col-md-offset-3">
+      <div class="col-md-6 col-md-offset-3">
         <h2>Best Pencils<button class="btn btn-warning pull-right" ng-click="showForm()">Nominate a Pencil!</button></h2>
-        <table class="table" >
+        <table class="table">
           <thead>
             <tr>
               <th colspan="1"></th>
@@ -28,7 +28,7 @@
                   <td>{{ pencil.grade }}</td>
                   <td class="text-right">
                     <button class="btn btn-primary"><span class="glyphicon glyphicon-cog"></span></button>
-                    <button class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+                    <button ng-click="deletePencil(pencil.id)" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
                   </td>
                 </tr>
           </tbody>
@@ -51,7 +51,8 @@
     </div>
   </div>
 
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.min.js"></script>
   <script type="text/javascript" src="../js/main.js"></script>
 </body>
 </html>

@@ -21,7 +21,7 @@ class PencilModel
   public function register_new_pencil($form_data) {
     // the $form_data argument comes from the form method POST
     // so $form_data['brand'] == req.body.brand
-    return $this->db->query('INSERT INTO pencils (brand, grade) VALUES ($form_data[0], $form_data[1])');
+    return $this->db->query('INSERT INTO pencils (brand, grade) VALUES ($form_data)');
   }
 
   public function loan_pencil($form_data, $id) {
@@ -29,7 +29,12 @@ class PencilModel
   }
 
   public function delete_pencil($id) {
-    return $this->$db->query('DELETE FROM pencils WHERE id='.$id);
+    return $this->db->query('DELETE FROM pencils WHERE id='.$id);
+  }
+
+  // not yet called in pencilManager.php switch case
+  public function up_vote($id) {
+    return $this->db->query("UPDATE pencils SET vote_count=vote_count + 1 WHERE id=".$id);
   }
 }
 
